@@ -1,0 +1,58 @@
+register: registers a new user account
+login: logs a user in
+logout: logs a user out
+updateUser: updates a user's information
+updatePassword: updates a user's password
+deleteUser: deletes a user account
+isLogged: checks if a user is logged in
+getCurrentUser: retrieves the current logged-in user
+getUsers: retrieves a list of all user accounts
+getUser: retrieves a single user account
+addPermission: adds a permission to a user or a group of users
+removePermission: removes a permission from a user or a group of users
+hasPermission: checks if a user has a specific permission
+getPermissions: retrieves the permissions of a user or a group of users
+getBaseUser: Gets basic user data for a given UID
+deleteUserForced: Force delete user without password or captcha verification
+addRequest: Creates a new password reset or  activation request for a given user and sends the email
+getRequest: Returns request based on request key and type
+deleteRequest: Deletes a request by request ID
+validatePassword: checks if a password meets specific lenght
+validateEmail: checks if an email address is valid and is not banned
+resetPass: Allows a user to change their password with a password reset request key
+resendActivation: Allows a user to resend an activation email
+changePassword: Allows a user to change their password
+changeEmail: Allows a user to change their email address
+isBlocked: Checks if an IP is temporarily blocked, allowed or should be verified (eg by captcha) from the system
+checkCaptcha: Implement the verification of the captcha
+checkReCaptcha: Check Google Recaptcha code. If reCaptcha disabled in config or config not defined - return TRUE
+logoutAll: Terminates all sessions with a same UID.
+getHash: Hashes a given string with the provided salt using bcrypt
+getUID: Gets the user's ID associated with a given email address
+addSession: Creates a session for a given UID. Also installs a cookie named config->cookie_name.
+deleteExistingSessions: Removes all existing sessions for a given UID
+deleteSession: Deletes the session associated with a given session hash
+checkSession: Checks if a session hash is valid
+getSessionUID: Retrieves the UID associated with a given session hash
+isEmailTaken: Checks if an email is already in use by another user
+isEmailBanned: Checks if the provided email is banned
+getBaseUser: Gets basic user data for a given UID
+addAttempt: Increments the attempt counter for the current IP
+deleteAttempts: Resets the attempt counter for a given IP
+getRandomKey: Provides a randomly generated string
+getIp: Provides the current user's IP
+getCurrentSessionHash:
+Get current user's session hash
+isLogged: Returns is user logged in
+getCurrentUser: Gets user data for current user (from cookie/session_hash) and returns an array, password is not returned
+renewUserSession: Update user session expire time using either session hash or uid
+comparePasswords: Compare user's password with given password
+password_verify_with_rehash: Verifies the entered password against the stored hash. If the bcrypt_cost setting are now stronger than when the password was originally hashed and stored in the database, the password will be rehashed and the database-entry replaced by the new value.
+__lang: Translates key-message to defined language using substitutional params
+do_SendMail: Send email via PHPMailer.
+getCurrentUID: Returns current user UID if logged or FALSE otherwise
+getCurrentSessionUserInfo: Return info about current user or FALSE
+deleteExpiredAttempts: Deletes all attempts where the expiredate is older than now
+deleteExpiredSessions: Deletes all sessions where the expiredate is older than now
+deleteExpiredRequests: Deletes all requests where the expiredate is older than now
+cron: Deletes all attempts, sessions and requests where the expiredate is older than now
