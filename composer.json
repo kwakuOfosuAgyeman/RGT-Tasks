@@ -6,10 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "barryvdh/laravel-dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "league/csv": "^9.8",
+        "phpoffice/phpspreadsheet": "dev-NumberFormatMask-Helpers",
+        "simplesoftwareio/simple-qrcode": "^0.0.4@beta",
         "tymon/jwt-auth": "*"
     },
     "require-dev": {

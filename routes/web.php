@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CSVReaderController;
+use App\Http\Controllers\ExcelReaderController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/allView', [ExcelReaderController::class, 'readExcel'])->name('readExcel');
+Route::get('/view/{order_id}', [ExcelReaderController::class, 'viewPage'])->name('view');
+Route::get('/csv', [CSVReaderController::class, 'readCsv'])->name('csvFile');
+Route::get('/pdf', [PDFController::class, 'generatePdf'])->name('genertepdf');
