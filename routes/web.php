@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/allView', [ExcelReaderController::class, 'readExcel'])->name('readExcel');
-Route::get('/view/{order_id}', [ExcelReaderController::class, 'viewPage'])->name('view');
-Route::get('/csv', [CSVReaderController::class, 'readCsv'])->name('csvFile');
+Route::get('/view/{name}', [ExcelReaderController::class, 'viewPage'])->name('view');
+// Route::view('myview')->name('myview');
+Route::view('myview', 'myview');
+Route::get('/csv/{name}', [CSVReaderController::class, 'readCsv'])->name('csvFile');
 Route::get('/pdf', [PDFController::class, 'generatePdf'])->name('genertepdf');

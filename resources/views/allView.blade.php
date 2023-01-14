@@ -33,18 +33,23 @@
             <th>Name</th>
             <th>Email</th>
             <th>Event Name</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
             @foreach ($worksheet as $item)
 
                     <tr>
-                        <td><a href="{{ route('view', ['order_id' => $item[0]]) }}">{{ $item[0] }} </a></td>
+                        <td>{{ $item[0] }}</td>
                         <td>{{ $item[1] }}</td>
                         <td>{{ $item[2] }}</td>
                         <td>{{ $item[3] }}</td>
                         <td>{{ $item[4] }}</td>
                         <td>{{ $item[5] }}</td>
+                        <td>
+                            <a href="{{ route('csvFile', ['name' => $item[3]]) }}">Download CSV</a>
+                            <a href="{{ route('view', ['name' => $item[3]]) }}">View Tag</a>
+                        </td>
                     </tr>
 
             @endforeach

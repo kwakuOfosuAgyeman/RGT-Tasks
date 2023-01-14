@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    {{ $pdf }}
 
     <div class="event-tag">
         <div class="name">{{ $participant_name }}</div>
