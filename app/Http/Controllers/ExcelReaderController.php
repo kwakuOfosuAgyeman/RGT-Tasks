@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+require('../phpqrcode/qrlib.php');
 use PhpOffice\PhpSpreadsheet\IOFactory;
-// use BaconQrCode\Encoder\QrEncoder;
-// use BaconQrCode\Renderer\Image\Png;
-// use BaconQrCode\Renderer\RendererStyle\RendererStyle;
-// use BaconQrCode\Writer;
-use Milon\Barcode\DNS1D;
-// use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+// use Milon\Barcode\DNS1D;
 
 use Illuminate\Http\Request;
 
@@ -44,7 +41,6 @@ class ExcelReaderController extends Controller
          $searchResult = array_search($name, array_column($worksheetArray, 3));
 
          if ($searchResult !== false) {
-             // The value was found in the array
             $row = $searchResult + 1;
 
             $name = $worksheetArray[$searchResult][3];
@@ -53,12 +49,11 @@ class ExcelReaderController extends Controller
             $event = $worksheetArray[$searchResult][5];
             $price = $worksheetArray[$searchResult][8];
 
-            $barcode = new DNS1D();
-            $barcode->setStorPath(public_path('barcodes'));
-            // $barcode->getBarcodePNG($qrcode, "C39");
-            file_put_contents(public_path('barcodes/'.$name.'.png'), $barcode->getBarcodePNG($qrcode, "C39", 5, 33));
-            // dd($barcode);
-            return view('myview', ['name'=> $name, 'email' => $email, 'event' => $event, 'price' => $price,]);
+            if(!file_exists(public_path('barcodes/'.$name.'.png'))){
+                \QRcode::png((string)$qrcode, public_path('barcodes/'.$name.'.png'));
+            }
+
+            return view('myview', ['name'=> $name, 'email' => $email, 'event' => $event, 'price' => $price, 'qrcode' => $qrcode]);
          } else {
              // The value was not found in the array
              return "Value '$name' not found in the sheet";

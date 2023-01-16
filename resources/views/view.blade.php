@@ -33,16 +33,16 @@
 </head>
 
 <body>
-    {{ $pdf }}
+    {{-- {{ $pdf }} --}}
 
     <div class="event-tag">
-        <div class="name">{{ $participant_name }}</div>
-        <div class="email">{{ $participant_email }}</div>
+        <div class="name"></div>
+        <div class="email"></div>
         <div class="barcode">
             <svg class="barcode-svg"></svg>
         </div>
     </div>
 
 </body>
-<script src="{{ asset('view.js') }}"></script>
+{{-- <script src="{{ asset('view.js') }}"></script> --}}
 </html>

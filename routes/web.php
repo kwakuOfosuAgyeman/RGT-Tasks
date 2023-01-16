@@ -23,6 +23,6 @@ Route::get('/', function () {
 Route::get('/allView', [ExcelReaderController::class, 'readExcel'])->name('readExcel');
 Route::get('/view/{name}', [ExcelReaderController::class, 'viewPage'])->name('view');
 // Route::view('myview')->name('myview');
-Route::view('myview', 'myview');
+Route::get('myview', [ExcelReaderController::class, 'viewPage'])->name('myview');
 Route::get('/csv/{name}', [CSVReaderController::class, 'readCsv'])->name('csvFile');
-Route::get('/pdf', [PDFController::class, 'generatePdf'])->name('genertepdf');
+Route::get('/pdf/{name}/{email}/{event}/{price}', [PDFController::class, 'generatePdf'])->name('generatepdf');

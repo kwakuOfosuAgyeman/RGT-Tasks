@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Event Tag</title>
     <style>
         .event-card {
             background-color: #f2f2f2;
@@ -30,11 +30,11 @@
 <body>
     <div class="event-card">
         <h2 class="event-name">{{$event}}</h2>
-        <p class="email">{{$email}}</p>
-        <p class="email">{{ $price }}</p>
-        <p class="email">{{ $name }}</p>
+        <p class="email">Email: {{$email}}</p>
+        <p class="email">Price: ${{ $price }}</p>
+        <p class="email">Name: {{ $name }}</p>
         <img src="{{ asset('barcodes/'.$name.'.png') }}" alt="Barcode">
-        {{-- <img src="data:image/png;base64, {{ base64_encode($qrcode->getBarcodePNG($bar, "C39")) }}" alt="Barcode"> --}}
     </div>
+    <a href="{{ route('generatepdf', ['name' => $name, 'email'=> $email, 'price'=> $price, 'event' => $email]) }}">Generate PDF</a>
 </body>
 </html>

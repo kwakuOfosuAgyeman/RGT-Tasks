@@ -197,7 +197,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-        Milon\Barcode\BarcodeServiceProvider::class,
+        // Milon\Barcode\BarcodeServiceProvider::class,
+        // phpqrcode\phpqrcode\QRcodeServiceProvider::class,
 
     ],
 
@@ -213,7 +214,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'DNS1D' => Milon\Barcode\Facades\DNS1D::class,
+        // 'DNS1D' => Milon\Barcode\Facades\DNS1D::class,
         // 'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),

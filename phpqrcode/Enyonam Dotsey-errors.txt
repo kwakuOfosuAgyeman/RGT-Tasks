@@ -1,0 +1,1 @@
+2023-01-16 11:22:44: Trying to access array offset on value of type float2023-01-16 11:24:29: Trying to access array offset on value of type int2023-01-16 11:25:09: Trying to access array offset on value of type int
